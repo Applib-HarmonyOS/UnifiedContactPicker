@@ -35,7 +35,14 @@ public class ContactPickerAbility extends AbilitySlice implements ListContainer.
     private static final int SIZE_COUNT_ONE = 1;
     public static final int SEMICOL_HASHCODE = 65307;
     private ContactAdapter mContactAdapter;
-    private ArrayList<Contact> mContactsList;
+    /**
+     * mContactsList is for storing the queried contacts from database.
+     * currently there is a limitation to query the database static list has been used
+     * instead of contacts from database,in future whenever limitation is getting
+     * resolved need to uncomment the mContactsList variable and same need to use
+     * in while creating adapter
+     */
+    //private ArrayList<Contact> mContactsList;
 
     /**
      * Starts the ability.
