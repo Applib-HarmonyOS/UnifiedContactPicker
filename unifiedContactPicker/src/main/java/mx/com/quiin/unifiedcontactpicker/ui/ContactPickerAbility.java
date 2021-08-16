@@ -39,10 +39,12 @@ public class ContactPickerAbility extends AbilitySlice implements ListContainer.
      * mContactsList is for storing the queried contacts from database.
      * currently there is a limitation to query the database static list has been used
      * instead of contacts from database,in future whenever limitation is getting
-     * resolved need to uncomment the mContactsList variable and same need to use
-     * in while creating adapter
+     * resolved need to declare the mContactsList variable and same need to use
+     * in while creating adapter.
+     *
+     * private ArrayList<Contact> mContactsList;
      */
-    //private ArrayList<Contact> mContactsList;
+
 
     /**
      * Starts the ability.
