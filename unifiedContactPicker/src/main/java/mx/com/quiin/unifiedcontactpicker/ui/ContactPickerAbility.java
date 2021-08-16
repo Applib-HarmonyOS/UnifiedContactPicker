@@ -419,13 +419,13 @@ public class ContactPickerAbility extends AbilitySlice implements ListContainer.
     *
     * Currently the function is not getting the used since
     * we have a limitation to query the contact from database
-    * In future when this limitation is resolved ,this method
-    * need to be called before calling the read contact function
-    * in onStart() method.
+    * In future when this limitation is resolved ,uncomment this
+    * method and need to be called before calling
+    * the readContacts() in onStart() method.
     */
+   /**
    private void getContactInfo() {
        ContactsCollection resultSet = DbUtils.query(ContactPickerAbility.this);
-       Color[] colors = {Color.BLUE, Color.CYAN, Color.GRAY, Color.LTGRAY, Color.MAGENTA, Color.YELLOW};
        mContactsList = new ArrayList<Contact>();
        if (resultSet == null || resultSet.isEmpty()) {
            return;
@@ -448,7 +448,7 @@ public class ContactPickerAbility extends AbilitySlice implements ListContainer.
            }
            mContactsList.add(new Contact(contact.getName().toString(), primaryCommunication, getRandomColor(), communicationList));
        }
-   }
+   }*/
 
    /**
     * Pick different color randomly for the contact icon.
