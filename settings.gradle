@@ -1,1 +1,1 @@
-include ':entry', ':unifiedcontactpicker'
+include ':entry', ':unifiedContactPicker'

@@ -14,8 +14,4 @@ public class UnifiedContactPickerTest {
         final String actualBundleName = AbilityDelegatorRegistry.getArguments().getTestBundleName();
         assertEquals("mx.com.quiin.unifiedcontactpicker", actualBundleName);
     }
-
-    @Test
-    public void name() {
-    }
 }

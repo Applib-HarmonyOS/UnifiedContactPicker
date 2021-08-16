@@ -36,7 +36,7 @@ In order to use the library, add the following line to your **root** gradle file
 1. For using UnifiedContactPicker module in sample app, include the source code and add the below dependencies in entry/build.gradle to generate hap/support.har.
 ```
 	dependencies {
-            implementation project(':unifiedcontactpicker')
+            implementation project(':unifiedContactPicker')
             implementation fileTree(dir: 'libs', include: ['*.har'])
             testCompile 'junit:junit:4.12'
 	}

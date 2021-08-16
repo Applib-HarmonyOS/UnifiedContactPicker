@@ -40,9 +40,8 @@ allprojects {
     task checkstyle(type: Checkstyle) {
         showViolations = true
         configFile file("config/checkstyle.xml")
-
         source 'entry/src/main/java'
-        source 'unifiedcontactpicker/src/main/java'
+        source 'unifiedContactPicker/src/main/java'
         include '**/*.java'
 
         // empty classpath
