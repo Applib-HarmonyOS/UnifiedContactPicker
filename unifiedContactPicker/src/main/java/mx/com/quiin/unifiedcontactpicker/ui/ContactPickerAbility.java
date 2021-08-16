@@ -175,61 +175,61 @@ public class ContactPickerAbility extends AbilitySlice implements ListContainer.
         ArrayList<Contact> list = new ArrayList<>();
         List<String> list0 = new ArrayList<>();
         list0.add("9878987823");
-        list.add(new Contact("Arun", "9878987823", getRandomColor(), list0));
+        list.add(new Contact("Arun", "9878987823", Color.BLUE, list0));
         List<String> list1 = new ArrayList<>();
         list1.add("001182398");
         list1.add("6598780011");
         list1.add("manju@gmail.com");
-        list.add(new Contact("manju", "6598780011", getRandomColor(), list1));
+        list.add(new Contact("manju", "6598780011", Color.CYAN, list1));
         List<String> list2 = new ArrayList<>();
         list2.add("7898782398");
         list2.add("6598782398");
         list2.add("arunima@gmail.com");
-        list.add(new Contact("Arunima",  "7898782398",  getRandomColor(),  list2));
+        list.add(new Contact("Arunima",  "7898782398",  Color.YELLOW,  list2));
         List<String> list3 = new ArrayList<>();
         list3.add("2398782398");
         list3.add("0898782398");
         list3.add("Vijay@gmail.com");
-        list.add(new Contact("Vijay", "2398782398", getRandomColor(), list3));
+        list.add(new Contact("Vijay", "2398782398", Color.MAGENTA, list3));
         List<String> list4 = new ArrayList<>();
         list4.add("1298782398");
         list4.add("Ajay@gmail.com");
-        list.add(new Contact("Ajay", "1298782398", getRandomColor(), list4));
+        list.add(new Contact("Ajay", "1298782398", Color.RED, list4));
         List<String> list5 = new ArrayList<>();
         list5.add("0598782398");
         list5.add("Akshay@gmail.com");
-        list.add(new Contact("Akshay", "0598782398", getRandomColor(), list5));
+        list.add(new Contact("Akshay", "0598782398", Color.BLUE, list5));
         List<String> list6 = new ArrayList<>();
         list6.add("0412349857");
         list6.add("Varun@gmail.com");
-        list.add(new Contact("Varun", "235862349857", getRandomColor(), list6));
+        list.add(new Contact("Varun", "235862349857", Color.YELLOW, list6));
         List<String> list7 = new ArrayList<>();
         list7.add("999912349857");
         list7.add("777312349857");
         list7.add("Divya@gmail.com");
-        list.add(new Contact("Divya", "85468349857", getRandomColor(), list7));
+        list.add(new Contact("Divya", "85468349857", Color.MAGENTA, list7));
         List<String> list8 = new ArrayList<>();
         list8.add("001234985710");
         list8.add("Suri@gmail.com");
-        list.add(new Contact("Suri", "001234985710", getRandomColor(), list8));
+        list.add(new Contact("Suri", "001234985710", Color.RED, list8));
         List<String> list9 = new ArrayList<>();
         list9.add("011234985722");
         list9.add("011234985766");
         list9.add("Rayan@gmail.com");
-        list.add(new Contact("Rayan", "0112349857", getRandomColor(), list9));
+        list.add(new Contact("Rayan", "0112349857", Color.CYAN, list9));
         List<String> list10 = new ArrayList<>();
         list10.add("12349857");
         list10.add("22123498579");
         list10.add("Reshma@gmail.com");
-        list.add(new Contact("Reshma", "12349857", getRandomColor(), list10));
+        list.add(new Contact("Reshma", "12349857", Color.YELLOW, list10));
         List<String> list11 = new ArrayList<>();
         list11.add("0012349857");
         list11.add("12349857900");
         list11.add("Reshma@gmail.com");
-        list.add(new Contact("Riyaz", "0012349857", getRandomColor(), list11));
+        list.add(new Contact("Riyaz", "0012349857", Color.RED, list11));
         List<String> list12 = new ArrayList<>();
         list12.add("00001234");
-        list.add(new Contact("Rish", "00001234", getRandomColor(), list12));
+        list.add(new Contact("Rish", "00001234", Color.MAGENTA, list12));
         return list;
     }
 
@@ -462,9 +462,10 @@ public class ContactPickerAbility extends AbilitySlice implements ListContainer.
    /**
     * Pick different color randomly for the contact icon.
     */
+   /**
    private Color getRandomColor() {
        Color[] colors = {Color.BLUE, Color.CYAN, Color.RED, Color.MAGENTA, Color.YELLOW};
        int randomPosition = new Random().nextInt(colors.length);
        return colors[randomPosition];
-   }
+   }*/
  }

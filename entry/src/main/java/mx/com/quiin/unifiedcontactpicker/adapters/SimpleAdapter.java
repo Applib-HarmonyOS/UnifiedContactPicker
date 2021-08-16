@@ -88,16 +88,18 @@ public class SimpleAdapter extends BaseItemProvider {
         }
         selectorsIcon.setScaleMode(Image.ScaleMode.CENTER);
         mateFirstLetter.setLetter(contact.getFirstLetter());
-        mateFirstLetter.setShapeColor(getRandomColor());
+        mateFirstLetter.setShapeColor(Color.BLUE);
         return cpt;
     }
 
     /**
      * Pick different color randomly for the contact icon.
      */
+    /**
     private Color getRandomColor() {
         Color[] colors = {Color.BLUE, Color.CYAN, Color.RED, Color.MAGENTA, Color.YELLOW};
-        int randomPosition = new Random().nextInt(colors.length);
+        int randomPosition = new secureRandom.nextInt(colors.length);
+        //int randomPosition = new Random().nextInt(colors.length);
         return colors[randomPosition];
-    }
+    }*/
 }
