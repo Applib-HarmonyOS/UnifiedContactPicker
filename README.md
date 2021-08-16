@@ -1,7 +1,7 @@
 # Unified Contact Picker HOS Library
 
-[![.github/workflows/main.yml](https://github.com/applibgroup/UnifiedContactPicker/actions/workflows/main.yml/badge.svg)](https://github.com/applibgroup/UnifiedContactPicker/actions/workflows/main.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=applibgroup_UnifiedContactPicker2&metric=alert_status)](https://sonarcloud.io/dashboard?id=applibgroup_UnifiedContactPicker2)
+[![Build](https://github.com/HUSSAINKMM/UnifiedContactPicker/actions/workflows/main.yml/badge.svg)](https://github.com/HUSSAINKMM/UnifiedContactPicker/actions/workflows/main.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=applibgroup_UnifiedContactPicker&metric=alert_status)](https://sonarcloud.io/dashboard?id=applibgroup_UnifiedContactPicker)
 
 ## Introduction
 
