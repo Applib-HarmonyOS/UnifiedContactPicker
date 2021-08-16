@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    xmlns:app="http://schemas.huawei.com/hap/res-auto"
+
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:padding="8fp"
+    ohos:left_margin="25fp"
+    ohos:start_margin="25fp"
+    >
+<Image
+    ohos:id="$+id:ivCommunicationIcon"
+    ohos:align_parent_left="true"
+    ohos:align_parent_start="true"
+    ohos:vertical_center="true"
+    ohos:right_margin="16fp"
+    ohos:end_margin="16fp"
+    ohos:scale_mode="center"
+    ohos:height="40vp"
+    ohos:width="40vp"
+   />
+    <Text
+        ohos:id="$+id:tvCommunication"
+        ohos:vertical_center="true"
+        ohos:right_of="$id:ivCommunicationIcon"
+        ohos:end_of="$id:ivCommunicationIcon"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:text_size="16vp"/>
+</DependentLayout>

@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "Contact Picker"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "mainability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "mainability_title",
+      "value": "Unified Contact Picker Demo"
+    },
+    {
+      "name": "mainability_contact_select_info",
+      "value": "Contacts Selected:"
+    },
+    {
+      "name": "mainability_choose_contact_button_title",
+      "value": "CHOOSE CONTACTS"
+    },
+    {
+      "name": "mainability_no_contact_info",
+      "value": "No Contact Selected"
+    }
+  ]
+}

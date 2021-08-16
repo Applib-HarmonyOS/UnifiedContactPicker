@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "unifiedcontactpicker"
+    },
+    {
+      "name": "contact_picker_ability_title",
+      "value": "Unified Contact Picker Demo"
+    },
+    {
+      "name": "contact_picker_ability_search_hint",
+      "value": "Search here:"
+    }
+  ]
+}

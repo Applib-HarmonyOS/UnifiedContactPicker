@@ -1,0 +1,76 @@
+{
+  "color": [
+    {
+      "name": "colorprimary",
+      "value": "#3F51B5"
+    },
+    {
+      "name": "colorprimaryDark",
+      "value": "#303F9F"
+    },
+    {
+      "name": "colorAcent",
+      "value": "#3F51B5"
+    },
+    {
+      "name": "materialGreen",
+      "value": "#4CAF50"
+    },
+    {
+      "name": "color_1",
+      "value": "#DB4437"
+    },
+    {
+      "name": "color_2",
+      "value": "#E91E63"
+    },
+    {
+      "name": "color_3",
+      "value": "#FF5722"
+    },
+    {
+      "name": "color_4",
+      "value": "#EF6C00"
+    },
+    {
+      "name": "color_5",
+      "value": "#689f38"
+    },
+    {
+      "name": "color_6",
+      "value": "#0097A7"
+    },
+    {
+      "name": "color_7",
+      "value": "#4285F4"
+    },
+    {
+      "name": "color_8",
+      "value": "#039BE5"
+    },
+    {
+      "name": "color_9",
+      "value": "#3F51B5"
+    },
+    {
+      "name": "color_10",
+      "value": "#673AB7"
+    },
+    {
+      "name": "color_11",
+      "value": "#757575"
+    },
+    {
+      "name": "white",
+      "value": "#FFFFFFFF"
+    },
+    {
+      "name": "subtitle",
+      "value": "#8a000000"
+    },
+    {
+      "name": "selected",
+      "value": "#66009688"
+    }
+  ]
+}
