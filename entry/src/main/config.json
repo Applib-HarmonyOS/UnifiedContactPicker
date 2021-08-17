@@ -1,0 +1,91 @@
+{
+  "app": {
+    "bundleName": "mx.com.quiin.unifiedcontactpicker",
+    "vendor": "com",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    },
+    "apiVersion": {
+      "compatible": 4,
+      "target": 5,
+      "releaseType": "Release"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "mx.com.quiin.unifiedcontactpicker",
+    "name": ".MyApplication",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry"
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "reqPermissions":[
+          {
+            "name":"SystemPermission.READ_CONTACTS",
+            "reason":"Populating contacts",
+            "usedScene":{
+              "ability":[
+                "mx.com.quiin.unifiedcontactpicker.ui.ContactPickerAbility","mx.com.quiin.unifiedcontactpicker.MainAbility"
+              ],
+              "when":"always"
+            }
+          },
+          {
+            "name":"SystemPermission.WRITE_CONTACTS",
+            "reason":"Populating contacts",
+            "usedScene":{
+              "ability":[
+                "mx.com.quiin.unifiedcontactpicker.ui.ContactPickerAbility","mx.com.quiin.unifiedcontactpicker.MainAbility"
+              ],
+              "when":"always"
+            }
+          },
+          {
+            "name":"ohos.permission.WRITE_CONTACTS",
+            "reason":"Populating contacts",
+            "usedScene":{
+              "ability":[
+                "mx.com.quiin.unifiedcontactpicker.ui.ContactPickerAbility","mx.com.quiin.unifiedcontactpicker.MainAbility"
+              ],
+              "when":"always"
+            }
+          },
+          {
+            "name":"ohos.permission.READ_CONTACTS",
+            "reason":"Populating contacts",
+            "usedScene":{
+              "ability":[
+                "mx.com.quiin.unifiedcontactpicker.ui.ContactPickerAbility","mx.com.quiin.unifiedcontactpicker.MainAbility"
+              ],
+              "when":"always"
+            }
+          }
+        ],
+        "orientation": "unspecified",
+        "name": "mx.com.quiin.unifiedcontactpicker.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:app_name",
+        "type": "page",
+        "launchType": "standard"
+      }
+    ]
+  }
+}

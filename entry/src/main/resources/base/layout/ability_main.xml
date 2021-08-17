@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <Text
+        ohos:id="$+id:SelectpageTitle"
+        ohos:height="50vp"
+        ohos:width="match_parent"
+        ohos:background_element="$graphic:color_cyan"
+        ohos:text="$string:mainability_title"
+        ohos:text_alignment="center"
+        ohos:text_color="$color:white"
+        ohos:text_size="25vp"
+        ohos:align_parent_top="true"
+        />
+    <Text
+        ohos:id="$+id:SelectContactCount"
+        ohos:top_margin="20vp"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:text_size="30vp"
+        ohos:text="$string:mainability_contact_select_info"
+        ohos:bottom_margin="10vp"
+        ohos:text_alignment="center"
+        ohos:below="$id:SelectpageTitle"
+        />
+
+    <ListContainer
+        ohos:id="$+id:cp_listview"
+        ohos:above="$+id:select_contacts"
+        ohos:below="$id:SelectContactCount"
+        ohos:height="match_parent"
+        ohos:width="match_parent" />
+
+    <Button
+        ohos:id="$+id:select_contacts"
+        ohos:height="60vp"
+        ohos:width="match_content"
+        ohos:padding="15vp"
+        ohos:text_color="$color:white"
+        ohos:text="$string:mainability_choose_contact_button_title"
+        ohos:horizontal_center="true"
+        ohos:text_size="25vp"
+        ohos:background_element="$graphic:background_choose_contact"
+        ohos:bottom_margin="10vp"
+        ohos:align_parent_bottom="true"
+        />
+
+</DependentLayout>

@@ -1,22 +1,25 @@
-# Unified Contact Picker Android Library
+# Unified Contact Picker HOS Library
 
-[![GitHub release](https://img.shields.io/github/release/quiin/UnifiedContactPicker.svg)](https://github.com/quiin/UnifiedContactPicker/releases/latest)  [![Min SDK](https://img.shields.io/badge/minSDK-15-brightgreen.svg)](https://developer.android.com/about/dashboards/index.html)  [![GitHub license](https://img.shields.io/badge/license-Apache%202-orange.svg)](https://raw.githubusercontent.com/quiin/UnifiedContactPicker/master/LICENSE)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Unified%20Contact%20Picker-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5158) 
+[![Build](https://github.com/HUSSAINKMM/UnifiedContactPicker/actions/workflows/main.yml/badge.svg)](https://github.com/HUSSAINKMM/UnifiedContactPicker/actions/workflows/main.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=applibgroup_UnifiedContactPicker&metric=alert_status)](https://sonarcloud.io/dashboard?id=applibgroup_UnifiedContactPicker)
 
 ## Introduction
 
 This library unifies the user contacts in a compact and user intuitive way allowing the end-user to choose between the contact's available communication options (email/phone number) follows Material Design guidelines.
 
 Although there is a standard way to call the contact list in Android, it does not always feel well-integrated in your app
-Android applications.
-UnifiedContactPicker is an Android library which allows you to easily integrate contact picking workflow into your application with minimal effort
+HOS applications.
+UnifiedContactPicker is an HOS library which allows you to easily integrate contact picking workflow into your application with minimal effort
 
-### IMPORTANT :exclamation:
----
-This library is no longer in active development. However, pull requests for new features or bugfixes are always welcomed and will be attended.
+# Source
+
+The code in this repository was inspired from  https://github.com/quiin/UnifiedContactPicker. We are very thankful to quiin.
 
 ## Demo
-![](https://media.giphy.com/media/26xBtXCT49aFwPmCI/source.gif)
+
+![Layout_ability_main](Images/UnifiedContactPickerMainPage.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 ## Features
 
@@ -24,166 +27,118 @@ This library is no longer in active development. However, pull requests for new 
 * Customizable UI
 * Easy and redy to use
 * Display list of contacts
-* Intuitive interface
 * Follows Material Design guidelines
-* Asynchronous contact loading
 
-
-# Installation
+## Installation
 
 In order to use the library, add the following line to your **root** gradle file:
-<pre> <code>
-repositories {
-    jcenter()
-    maven { url "https://jitpack.io" }
-    ...
-}
-</code> </pre>
 
-As well as this line in your project **build.gradle** file
-<pre> <code>
-dependencies {
-    compile 'com.github.quiin:unifiedContactPicker:{LATEST_VERSION}'
-    ...
-}
-</code> </pre>
+1. For using UnifiedContactPicker module in sample app, include the source code and add the below dependencies in entry/build.gradle to generate hap/support.har.
+```
+	dependencies {
+            implementation project(':unifiedContactPicker')
+            implementation fileTree(dir: 'libs', include: ['*.har'])
+            testCompile 'junit:junit:4.12'
+	}
+```
+2. For using UnifiedContactPicker in separate application using har file, add the har file in the entry/libs folder and add the dependencies in entry/build.gradle file.
+```
+	dependencies {
+            implementation fileTree(dir: 'libs', include: ['*.har'])
+            testCompile 'junit:junit:4.12'
+	}
+
+```
+
 
 # Usage
 
 To use UnifiedContactPicker in your app simply follow this 3 simple steps:
 
-1. Add _read contacts_ permission in your manifest
+1. Add _read contacts_ && _write contacts_ permission in your config
 
 ```
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+"abilities": [
+"reqPermissions":[
+          {
+            "name":"SystemPermission.READ_CONTACTS",
+            "reason":"Populating contacts",
+            "usedScene":{
+              "ability":[
+                "mx.com.quiin.unifiedcontactpicker.ui.ContactPickerAbility","mx.com.quiin.unifiedcontactpicker.MainAbility"
+              ],
+              "when":"always"
+            }
+          },
+          {
+            "name":"SystemPermission.WRITE_CONTACTS",
+            "reason":"Populating contacts",
+            "usedScene":{
+              "ability":[
+                "mx.com.quiin.unifiedcontactpicker.ui.ContactPickerAbility","mx.com.quiin.unifiedcontactpicker.MainAbility"
+              ],
+              "when":"always"
+            }
+          }
+    ]
 ```
 
-2. Launch _ContactPickerActivity.java_ as activity result
+2. Launch _ContactPickerAbility.java_ as activity result
 
 ```java
 // Your Activity or Fragment
-public void launchContactPicker(View view) {
-        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS);
-        if(permissionCheck == PackageManager.PERMISSION_GRANTED){
-            Intent contactPicker = new Intent(this, ContactPickerActivity.class);
-            startActivityForResult(contactPicker, CONTACT_PICKER_REQUEST);
-        }else{
-            ActivityCompat.requestPermissions(this,
-                    new String[] {Manifest.permission.READ_CONTACTS},
-                    READ_CONTACT_REQUEST);
+public void launchContactPicker(Button button) {
+    button.setClickedListener(listener -> {
+        presentForResult(new ContactPickerAbility(), new Intent(), REQUEST_CONTACT_PICKER);
+    });
+}
+```
+
+3. Override _onResult()_  and wait for the user to select the contacts.
+
+```java
+@Override
+protected void onResult(final int requestCode, final Intent resultIntent) {
+        try {
+            super.onResult(requestCode, resultIntent);
+            if (resultIntent.hasParameter("CP_SELECTED_CONTACTS")) {
+                mSelectedContacts.addAll(resultIntent.getSerializableParam("CP_SELECTED_CONTACTS"));
+                SimpleAdapter contactListAdapt = new SimpleAdapter(mSelectedContacts, this);
+                contactListCont.setVisibility(Component.VISIBLE);
+                mSelectedCount.setText(this.getResourceManager().
+                        getElement(ResourceTable.String_mainability_contact_select_info).getString());
+                contactListCont.setItemProvider(contactListAdapt);
+            }
+        } catch (IOException | NotExistException | WrongTypeException e) {
+            e.printStackTrace();
         }
     }
 
 ```
 
-3. Override _onActivityResult()_  and wait for the user to select the contacts.
-
-```java
-@Override
-protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    switch (requestCode){
-        case CONTACT_PICKER_REQUEST:
-            if(resultCode == RESULT_OK){
-                TreeSet<SimpleContact> selectedContacts = (TreeSet<SimpleContact>)data.getSerializableExtra(ContactPickerActivity.CP_SELECTED_CONTACTS);
-                for (SimpleContact selectedContact : selectedContacts)
-                        Log.e("Selected", selectedContact.toString());
-            }else
-                Toast.makeText(this, "No contacts selected", Toast.LENGTH_LONG).show();
-        break;
-        default:
-            super.onActivityResult(requestCode,resultCode,data);
-        }
-}
-
-```
-
-Contacts are returned in a TreeSet of *SimpleContact*; each *SimpleContact* object ha the following accessible properties:
+Contacts are returned in a ArrayList of *SimpleContact*; each *SimpleContact* object ha the following accessible properties:
 
 * DisplayName - Contact display name
 * Communication - Contact selected communication (email/phone)
 
-> :warning:  IMPORTANT
->
->  As of SDK 23 (Android 6) developers are requested to explicitly ask for permissions at runtime. So please be sure to request for contact reading permissions using the previous code or any other means you prefer.
-
-
-## Customization
-
-The following UI views can be customized:
-
-| UI component           |       Intent extra        | Expected value |  Type   | Sugestion |
-|:----------------------:|:-------------------------:|:--------------:|:-------:|:---------:|
-| FAB color              | CP_EXTRA_FAB_COLOR        | hexColor       | String  |       -   |
-| Selection color        | CP_EXTRA_SELECTION_COLOR  | hexColor       | String  |       -   |
-| Selection Drawable     |CP_EXTRA_SELECTION_DRAWABLE| Image          | byte [] |use PickerUtils.sendDrawable()|
-| Fab drawable           | CP_EXTRA_FAB_DRAWABLE     | Image          | byte [] |use PickerUtils.sendDrawable()|
-| Chips                  | CP_EXTRA_SHOW_CHIPS       | boolean        | boolean |       -   |
-
-
-Aditionally, you can customize the contact query parameters used to extract the user's contacts adding the following extras to the intent
-
-| Extra                             |   Type    |
-|:---------------------------------:|:---------:|
-|CP_EXTRA_PROJECTION                | String [] |
-|CP_EXTRA_SELECTION                 | String    |
-|CP_EXTRA_SELECTION_ARGS            | String [] |
-|CP_EXTRA_HAS_CUSTOM_SELECTION_ARGS | boolean   |
-|CP_EXTRA_SORT_BY                   | String    |
-
-#### Example
-```java
-public void launchContactPicker(View view) {
-        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS);
-        if(permissionCheck == PackageManager.PERMISSION_GRANTED){
-            Intent contactPicker = new Intent(this, ContactPickerActivity.class);
-            //Don't show Chips
-            contactPicker.putExtra(ContactPickerActivity.CP_EXTRA_SHOW_CHIPS, false);
-            //Customize Floating action button color
-            contactPicker.putExtra(ContactPickerActivity.CP_EXTRA_FAB_COLOR, "#FFF722");
-            //Customize Selection drawable
-            contactPicker.putExtra(ContactPickerActivity.CP_EXTRA_SELECTION_DRAWABLE, PickerUtils.sendDrawable(getResources(),R.drawable.my_drawable));
-            startActivityForResult(contactPicker, CONTACT_PICKER_REQUEST);
-        }else{
-            ActivityCompat.requestPermissions(this,
-                    new String[] {Manifest.permission.READ_CONTACTS},
-                    READ_CONTACT_REQUEST);
-        }
-    }
-```
-
-## Default values & behavior
-
-* Default projection columns:
-  * ContactsContract.Data._ID
-  * ContactsContract.Contacts.DISPLAY_NAME
-  * ContactsContract.CommonDataKinds.Phone.NUMBER
-  * ContactsContract.Data.MIMETYPE
-
-* Default selection query:
-```java
-"(" + ContactsContract.Data.MIMETYPE + "=? OR " + ContactsContract.Data.MIMETYPE + "=?)"
-```
-* Default selection params:
-  * ContactsContract.CommonDataKinds.Email.CONTENT_ITEM_TYPE
-  * ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE
-* Default sorting: DisplayName Ascendant
-* A chip is added to the textview when one of the following happens:
-  * User chooses a contact from the contact list
-  * User writes a new email/phone - the chip is created after an empty space is found (" ")
-
-## Considerations
-* In the absence of any of these extras, its value will fallback to the default value
-* If you wish to use a custom selection string (CP_EXTRA_SELECTION) with custom selection arguments (CP_EXTRA_SELECTION_ARGS) the use of CP_EXTRA_HAS_CUSTOM_SELECTION_ARGS is _required_ in order for the query to work (see defaults section for more information)
-
-
 ## Support & extension
+
+Currently there is a limitation to access the contact database, temporary the static list has been used to populate the contact.
+In future below modification is expected for populating the contacts from contact database instead of static list.
+
+Modifications required in ContactPickerAbility.java. 
+
+1.In onstart() method call getContactInfo() before calling readContacts() function.
+
+2.In readContact() method the list for base provider can be replaced with mContactsList instead of getTempContactList().
+
+3.getTempContactList() method need to be removed.
+
 - Feel free to make any pull request to add a new behaviour or fix some existing bug
 - Feel free to open issues if you find some bug or unexpected behaviour
 - I'll keep polishing and giving support to this library in my free time
 
 ## Acknowledgments
 
- * [MaterialLetterIcon](https://github.com/IvBaranov/MaterialLetterIcon) For the cool image icon in contact list
- * [RoundedImageView](https://github.com/vinc3m1/RoundedImageView) For the rounded icon once a contact is selected
- * [ExpandableRecyclerView](https://github.com/bignerdranch/expandable-recycler-view) For the expandable recycler view in contact list
- * [Nachos](https://github.com/hootsuite/nachos) For the chip view
+ * [MaterialLetterIcon](https://github.com/applibgroup/MaterialLetterIcon) For the cool image icon in contact list
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <Text
+        ohos:id="$+id:dispCount"
+        ohos:height="50vp"
+        ohos:width="match_parent"
+        ohos:background_element="$graphic:color_cyan"
+        ohos:layout_alignment="horizontal_center"
+        ohos:text="$string:contact_picker_ability_title"
+        ohos:text_alignment="center"
+        ohos:text_color="$color:white"
+        ohos:text_size="20vp"
+        />
+    <TextField
+        ohos:id="$+id:searchbar"
+        ohos:height="50vp"
+        ohos:width="match_parent"
+        ohos:background_element="$graphic:searchbar_background"
+        ohos:text_size="20vp"
+        ohos:below="$id:dispCount"
+        ohos:hint="$string:contact_picker_ability_search_hint"
+        />
+
+    <ListContainer
+        ohos:id="$+id:cp_listview"
+        ohos:below="$id:searchbar"
+        ohos:height="match_parent"
+        ohos:width="match_parent" />
+
+    <Button
+        ohos:id="$+id:fab"
+        ohos:height="60vp"
+        ohos:width="60vp"
+        ohos:text_color="$color:colorprimaryDark"
+        ohos:margin="20vp"
+        ohos:align_parent_right="true"
+        ohos:align_parent_bottom="true"
+        ohos:text_size="30vp"
+        ohos:background_element="$graphic:fab"
+        />
+
+</DependentLayout>
