@@ -16,6 +16,8 @@ ohos {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar','*.har'])
+    implementation 'dev.applibgroup:materiallettericon:1.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.13'
 }
+
