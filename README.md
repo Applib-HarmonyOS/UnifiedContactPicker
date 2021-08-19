@@ -11,9 +11,9 @@ Although there is a standard way to call the contact list in Android, it does no
 HOS applications.
 UnifiedContactPicker is an HOS library which allows you to easily integrate contact picking workflow into your application with minimal effort
 
-# Source
-
-The code in this repository was inspired from  https://github.com/quiin/UnifiedContactPicker. We are very thankful to quiin.
+## Source
+ 
+###### The code in this repository was inspired from [quiin/UnifiedContactPicker - v1.0](https://github.com/quiin/UnifiedContactPicker). We are very thankful to quiin.
 
 ## Demo
 

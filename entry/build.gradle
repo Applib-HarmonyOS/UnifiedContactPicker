@@ -18,6 +18,7 @@ ohos {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    implementation 'dev.applibgroup:materiallettericon:1.0.0'
     testImplementation 'junit:junit:4.13'
     ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
     implementation project(':unifiedContactPicker')
