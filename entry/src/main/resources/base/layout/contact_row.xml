@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    xmlns:app="http://schemas.huawei.com/hap/res-auto"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <DependentLayout
+        xmlns:ohos="http://schemas.huawei.com/res/ohos"
+        ohos:orientation="horizontal"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:start_margin="8vp"
+        ohos:end_margin="8vp"
+        ohos:top_margin="8vp"
+        ohos:right_margin="8vp"
+        ohos:left_margin="8vp"
+        ohos:bottom_margin="8vp"
+        ohos:alignment="vertical_center">
+
+        <com.github.ivbaranov.mli.MaterialLetterIcon
+            ohos:height="40vp"
+            ohos:width="40vp"
+            ohos:id="$+id:MaterialFirstLetter"
+            app:mOriginalLetter="I"
+            app:mLetterColor="#FF0000"
+            app:mLetterSize="25"
+            app:mShapeColor="#00FF00"
+            ohos:padding="10vp"
+            ohos:margin="10vp"
+            ohos:align_parent_left="true"
+            ohos:align_parent_start="true"/>
+
+    <DependentLayout
+        ohos:vertical_center="true"
+        ohos:right_of="$id:MaterialFirstLetter"
+        ohos:end_of="$id:MaterialFirstLetter"
+        ohos:left_of="$id:cp_clickArea"
+        ohos:start_of="$id:cp_clickArea"
+        ohos:align_parent_top="true"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:horizontal_center="true"
+        ohos:center_in_parent="true"
+        ohos:id="$+id:mainDisp" >
+
+        <Text
+            ohos:id="$+id:tvDisplayName"
+            ohos:text_size="20vp"
+            ohos:align_parent_top="true"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+           />
+        <Text
+            ohos:id="$+id:tvCommunication"
+            ohos:text_size="15vp"
+            ohos:below="$+id:tvDisplayName"
+            ohos:height="match_content"
+            ohos:width="match_parent"/>
+
+    </DependentLayout>
+
+    <DirectionalLayout
+        ohos:id="$+id:cp_clickArea"
+        ohos:orientation="horizontal"
+        ohos:align_parent_top="true"
+        ohos:align_parent_right="true"
+        ohos:align_parent_end="true"
+        ohos:vertical_center="true"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        >
+    <Image
+        ohos:id="$+id:cp_ivSelectedComm"
+        ohos:height="40vp"
+        ohos:width="40vp"
+        />
+    </DirectionalLayout>
+
+    </DependentLayout>
+
+</DirectionalLayout>
+
+
+
+
+
+
+
+
+
+

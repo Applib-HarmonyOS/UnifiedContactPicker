@@ -19,7 +19,6 @@ package mx.com.quiin.unifiedcontactpicker.adapters;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 import mx.com.quiin.unifiedcontactpicker.SimpleContact;
 import java.util.List;
-import java.util.Random;
 
 import mx.com.quiin.unifiedcontactpicker.ResourceTable;
 import ohos.agp.components.*;
@@ -68,7 +67,7 @@ public class SimpleAdapter extends BaseItemProvider {
         SimpleContact contact = mSelectedContacts.get(position);
         if (component == null) {
             cpt = LayoutScatter.getInstance(mContext)
-                    .parse(ResourceTable.Layout_cp_contact_row, null, false);
+                    .parse(ResourceTable.Layout_contact_row, null, false);
         } else {
             cpt = component;
         }
@@ -78,8 +77,6 @@ public class SimpleAdapter extends BaseItemProvider {
                 .findComponentById(ResourceTable.Id_MaterialFirstLetter);
         Image selectorsIcon = (Image) cpt.findComponentById(ResourceTable.Id_cp_ivSelectedComm);
         displayName.setText(contact.getDisplayName());
-        Image expandArrow = (Image) cpt.findComponentById(ResourceTable.Id_cp_ArrowExpand);
-        expandArrow.setVisibility(Component.HIDE);
         communication.setText(contact.getCommunication());
         if (contact.getCommunication().contains("@")) {
             selectorsIcon.setImageAndDecodeBounds(ResourceTable.Media_ic_email);
