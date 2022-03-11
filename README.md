@@ -7,8 +7,6 @@
 
 This library unifies the user contacts in a compact and user intuitive way allowing the end-user to choose between the contact's available communication options (email/phone number) follows Material Design guidelines.
 
-Although there is a standard way to call the contact list in Android, it does not always feel well-integrated in your app
-HOS applications.
 UnifiedContactPicker is an HOS library which allows you to easily integrate contact picking workflow into your application with minimal effort
 
 ## Source
